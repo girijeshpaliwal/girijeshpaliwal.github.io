@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import { assetPath } from "../constants";
+
 function Navigation() {
   return (
     <ul className="nav-ul">
@@ -19,13 +21,34 @@ function Navigation() {
         </a>
       </li>
       <li className="nav-li">
+        <a className="nav-link" href="#experience">
+          Experience
+        </a>
+      </li>
+      <li className="nav-li">
+        <a className="nav-link" href="#testimonials">
+          Reviews
+        </a>
+      </li>
+      <li className="nav-li">
         <a className="nav-link" href="#contact">
           Contact
+        </a>
+      </li>
+      <li className="nav-li max-sm:w-full">
+        <a
+          className="inline-flex items-center justify-center px-4 py-1.5 text-sm font-semibold text-white transition-all rounded-full bg-radial from-lavender to-royal hover:brightness-110"
+          href={assetPath("resume.pdf")}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Resume ↗
         </a>
       </li>
     </ul>
   );
 }
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -33,17 +56,26 @@ const Navbar = () => {
       <div className="mx-auto c-space max-w-7xl">
         <div className="flex items-center justify-between py-2 sm:py-0">
           <a
-            href="/"
-            className="text-xl font-bold transition-colors text-neutral-400 hover:text-white"
+            href="#home"
+            className="flex items-center gap-2 text-xl font-bold transition-colors text-neutral-300 hover:text-white"
           >
-            Ali
+            <img
+              src={assetPath("icon.png")}
+              alt="Girijesh Paliwal"
+              className="w-7 h-7 rounded-md object-contain"
+              onError={(e) => {
+                e.target.style.display = "none";
+              }}
+            />
+            <span>Girijesh Paliwal</span>
           </a>
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden"
+            aria-label="Toggle Navigation"
           >
             <img
-              src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
+              src={assetPath(isOpen ? "assets/close.svg" : "assets/menu.svg")}
               className="w-6 h-6"
               alt="toggle"
             />
@@ -59,7 +91,7 @@ const Navbar = () => {
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           style={{ maxHeight: "100vh" }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.3 }}
         >
           <nav className="pb-5">
             <Navigation />
