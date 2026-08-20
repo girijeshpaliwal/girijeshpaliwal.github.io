@@ -12,7 +12,11 @@ const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
 
   return (
-    <section id="home" className="flex items-start justify-center min-h-screen overflow-hidden md:items-start md:justify-start c-space">
+    <section
+      id="home"
+      aria-label="Girijesh Paliwal - Mobile App Developer"
+      className="flex items-start justify-center min-h-screen overflow-hidden md:items-start md:justify-start c-space"
+    >
       <HeroText />
 
       <ParallaxBackground />
@@ -20,13 +24,14 @@ const Hero = () => {
       <figure
         className="absolute inset-0"
         style={{ width: "100vw", height: "100vh" }}
+        aria-hidden="true"
       >
         <Canvas camera={{ position: [0, 1, 3] }}>
           <Suspense fallback={<Loader />}>
             <Float>
               <Astronaut
-                scale={isMobile && 0.23}
-                position={isMobile && [0, -1.5, 0]}
+                scale={isMobile ? 0.23 : undefined}
+                position={isMobile ? [0, -1.5, 0] : undefined}
               />
             </Float>
 
@@ -39,7 +44,7 @@ const Hero = () => {
 };
 
 function Rig() {
-  return useFrame((state, delta) => {
+  useFrame((state, delta) => {
     easing.damp3(
       state.camera.position,
       [state.mouse.x / 10, 1 + state.mouse.y / 10, 3],
@@ -47,6 +52,8 @@ function Rig() {
       delta
     );
   });
+
+  return null;
 }
 
 export default Hero;
