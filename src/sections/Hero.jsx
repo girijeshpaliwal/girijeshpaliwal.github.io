@@ -119,7 +119,7 @@ const Hero = () => {
 
               <div>
                 <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-white/40">
-                  Portfolio
+                  Portfolios
                 </p>
 
                 <p className="text-[10px] text-white/55 md:text-[11px]">
