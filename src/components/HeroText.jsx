@@ -7,6 +7,7 @@ const HeroText = () => {
     hidden: { opacity: 0, x: -50 },
     visible: { opacity: 1, x: 0 },
   };
+
   return (
     <div className="z-10 mt-20 text-center md:mt-40 md:text-left rounded-3xl bg-clip-text">
       {/* Desktop View */}
@@ -18,18 +19,18 @@ const HeroText = () => {
           animate="visible"
           transition={{ delay: 1 }}
         >
-          Hi, I'm Girijesh
+          Hi, I'm <span className="font-bold">Girijesh Paliwal</span>
         </motion.h1>
         <div className="flex flex-col items-start">
-          <motion.p
+          <motion.h2
             className="text-5xl font-medium text-neutral-300"
             variants={variants}
             initial="hidden"
             animate="visible"
             transition={{ delay: 1.2 }}
           >
-            Senior Mobile Developer <br /> Dedicated to Crafting
-          </motion.p>
+            Senior Mobile App Developer <br /> Dedicated to Crafting
+          </motion.h2>
           <motion.div
             variants={variants}
             initial="hidden"
@@ -52,27 +53,28 @@ const HeroText = () => {
           </motion.p>
         </div>
       </div>
+
       {/* Mobile View */}
       <div className="flex flex-col space-y-6 md:hidden">
-        <motion.p
+        <motion.h1
           className="text-4xl font-medium"
           variants={variants}
           initial="hidden"
           animate="visible"
           transition={{ delay: 1 }}
         >
-          Hi, I'm Girijesh
-        </motion.p>
+          Hi, I'm <span className="font-bold">Girijesh Paliwal</span>
+        </motion.h1>
         <div>
-          <motion.p
+          <motion.h2
             className="text-5xl font-black text-neutral-300"
             variants={variants}
             initial="hidden"
             animate="visible"
             transition={{ delay: 1.2 }}
           >
-            Building High-Performance
-          </motion.p>
+            Senior Mobile App Developer Building High-Performance
+          </motion.h2>
           <motion.div
             variants={variants}
             initial="hidden"
