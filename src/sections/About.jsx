@@ -8,14 +8,14 @@ import { assetPath } from "../constants";
 const About = () => {
   const grid2Container = useRef();
   return (
-    <section className="c-space section-spacing" id="about">
+    <section className="c-space section-spacing" id="about" aria-label="About Girijesh Paliwal">
       <h2 className="text-heading">About Me</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12">
         {/* Grid 1 */}
         <div className="flex items-end grid-default-color grid-1">
           <img
             src={assetPath("assets/coding-pov.png")}
-            alt="Coding POV"
+            alt="Girijesh Paliwal coding mobile applications on laptop"
             className="absolute scale-[1.75] -right-[5rem] -top-[1rem] md:scale-[3] md:left-50 md:inset-y-10 lg:scale-[2.5]"
           />
           <div className="z-10">

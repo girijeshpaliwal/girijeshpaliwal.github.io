@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://girijeshpaliwal.github.io/sitemap.xml

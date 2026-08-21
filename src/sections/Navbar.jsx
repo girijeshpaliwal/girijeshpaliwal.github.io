@@ -41,6 +41,7 @@ function Navigation() {
           href={assetPath("resume.pdf")}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="View Girijesh Paliwal's Resume (PDF)"
         >
           Resume ↗
         </a>
@@ -52,16 +53,17 @@ function Navigation() {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="fixed inset-x-0 z-20 w-full backdrop-blur-lg bg-primary/40">
+    <header className="fixed inset-x-0 z-20 w-full backdrop-blur-lg bg-primary/40">
       <div className="mx-auto c-space max-w-7xl">
         <div className="flex items-center justify-between py-2 sm:py-0">
           <a
             href="#home"
             className="flex items-center gap-2 text-xl font-bold transition-colors text-neutral-300 hover:text-white"
+            aria-label="Girijesh Paliwal Homepage"
           >
             <img
               src={assetPath("icon.png")}
-              alt="Girijesh Paliwal"
+              alt="Girijesh Paliwal — Mobile App Developer"
               className="w-7 h-7 rounded-md object-contain"
               onError={(e) => {
                 e.target.style.display = "none";
@@ -72,15 +74,16 @@ const Navbar = () => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden"
-            aria-label="Toggle Navigation"
+            aria-label="Toggle Navigation Menu"
+            aria-expanded={isOpen}
           >
             <img
               src={assetPath(isOpen ? "assets/close.svg" : "assets/menu.svg")}
               className="w-6 h-6"
-              alt="toggle"
+              alt="Toggle Menu"
             />
           </button>
-          <nav className="hidden sm:flex">
+          <nav className="hidden sm:flex" aria-label="Main Navigation">
             <Navigation />
           </nav>
         </div>
@@ -93,12 +96,12 @@ const Navbar = () => {
           style={{ maxHeight: "100vh" }}
           transition={{ duration: 0.3 }}
         >
-          <nav className="pb-5">
+          <nav className="pb-5" aria-label="Mobile Navigation">
             <Navigation />
           </nav>
         </motion.div>
       )}
-    </div>
+    </header>
   );
 };
 

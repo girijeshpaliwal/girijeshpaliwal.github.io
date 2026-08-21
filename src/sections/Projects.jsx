@@ -19,6 +19,7 @@ const Projects = () => {
       id="work"
       onMouseMove={handleMouseMove}
       className="relative c-space section-spacing"
+      aria-label="Selected Mobile Applications and Projects by Girijesh Paliwal"
     >
       <h2 className="text-heading">My Selected Projects</h2>
       <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-[1px] w-full" />
@@ -30,7 +31,7 @@ const Projects = () => {
           <motion.img
             className="fixed top-0 left-0 z-50 object-cover h-52 rounded-xl shadow-2xl pointer-events-none w-80 border border-white/20 hidden md:block"
             src={preview}
-            alt="Project preview"
+            alt="Mobile Project interactive preview"
             style={{ x: springX, y: springY }}
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
